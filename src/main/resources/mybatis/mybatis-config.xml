@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- 引用配置文件 -->
+    <properties resource="properties/jdbc.properties" />
+
+    <!-- 取别名，这个包下的类引用不需要加包名 -->
+    <typeAliases>
+        <package name="com.alphabet.entity" />
+    </typeAliases>
+
+    <!-- 数据库适配器 -->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <!-- config params as the following -->
+            <!--<!–分页参数合理化  –>-->
+            <property name="reasonable" value="true"/>
+            <!-- 数据库方言 -->
+            <!--<property name="dialect" value="mysql"/>-->
+        </plugin>
+    </plugins>
+</configuration>
