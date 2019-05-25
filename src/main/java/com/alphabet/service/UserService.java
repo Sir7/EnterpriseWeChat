@@ -1,6 +1,8 @@
 package com.alphabet.service;
 
-import com.alphabet.entity.UserEntity;
+import com.alphabet.entity.UserDOModel.UserDO;
+import com.alphabet.requestModel.UserModel.AddUserReqDTO;
+import com.alphabet.requestModel.UserModel.DelUserReqDTO;
 
 import java.util.List;
 
@@ -12,21 +14,58 @@ import java.util.List;
  **/
 public interface UserService {
 
-    //获取所有在职用户
-    public List<UserEntity> queryAllUser();
+    /**
+     * 新增用户
+     * @param addUserReqDTO
+     * @return
+     */
+    Boolean addUser(AddUserReqDTO addUserReqDTO);
 
-    //根据id获取用户
-    public UserEntity getUserById(String id);
+    /**
+     * 删除用户
+     * @param delUserReqDTO
+     * @return
+     */
+    Boolean delUser(DelUserReqDTO delUserReqDTO);
 
-    //根据userId获取用户
-    public UserEntity getUserByUserId(String userId);
+    /**
+     * 获取所有在职用户
+     * @return
+     */
+    List<UserDO> queryAllUser();
 
-    //根据用户名和密码获取用户
-    public UserEntity getUserByInfo(String userName,String password);
+    /**
+     * 根据id获取用户
+     * @param id
+     * @return
+     */
+    UserDO getUserById(String id);
 
-    //根据组织id获取在职用户
-    public List<UserEntity> getUserByOrgId(String orgId);
+    /**
+     * 根据userId获取用户
+     * @param userId
+     * @return
+     */
+    UserDO getUserByUserId(String userId);
 
-    //获取所有离职用户
-    public List<UserEntity> getQuitUser();
+    /**
+     * 根据用户名和密码获取用户
+     * @param userName
+     * @param password
+     * @return
+     */
+    UserDO getUserByInfo(String userName, String password);
+
+    /**
+     * 根据组织id获取在职用户
+     * @param orgId
+     * @return
+     */
+    List<UserDO> getUserByOrgId(String orgId);
+
+    /**
+     * 获取所有离职用户
+     * @return
+     */
+    List<UserDO> getQuitUser();
 }

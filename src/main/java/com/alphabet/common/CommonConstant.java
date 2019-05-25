@@ -1,7 +1,7 @@
 package com.alphabet.common;
 
-import com.alphabet.entity.OrgEntity;
-import com.alphabet.entity.UserEntity;
+import com.alphabet.entity.OrgDOModel.OrgDO;
+import com.alphabet.entity.UserDOModel.UserDO;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,10 +17,10 @@ import java.util.Map;
 public class CommonConstant {
 
     // 系统用户列表
-    public List<UserEntity> LIST_USERINFO = new ArrayList<UserEntity>();
+    public List<UserDO> LIST_USERINFO = new ArrayList<UserDO>();
 
     // 系统部门列表
-    public ArrayList<OrgEntity> LIST_ORGINFO = new ArrayList<OrgEntity>();
+    public ArrayList<OrgDO> LIST_ORGINFO = new ArrayList<OrgDO>();
 
     // 微信支付请求时需要的数据集合
     public Map<String,String> MAP_WXPAY = new HashMap<String,String>();
