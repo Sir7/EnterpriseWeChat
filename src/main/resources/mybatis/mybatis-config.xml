@@ -16,10 +16,10 @@
     <plugins>
         <plugin interceptor="com.github.pagehelper.PageInterceptor">
             <!-- config params as the following -->
-            <!--<!–分页参数合理化  –>-->
+            <!--分页参数合理化-->
             <property name="reasonable" value="true"/>
             <!-- 数据库方言 -->
-            <!--<property name="dialect" value="mysql"/>-->
+            <property name="dialect" value="mysql"/>
         </plugin>
     </plugins>
 </configuration>

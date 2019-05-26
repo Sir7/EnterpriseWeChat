@@ -1,4 +1,4 @@
-package com.alphabet.conver;
+package com.alphabet.converter;
 
 import com.alphabet.entity.OrgBOModel.OrgBO;
 import com.alphabet.entity.OrgDOModel.OrgDO;
@@ -12,9 +12,9 @@ import org.springframework.stereotype.Component;
  * @Date 2019/5/25 21:37
  **/
 @Component
-public class OrgConver {
+public class OrgConverter {
 
-    public OrgConver(){}
+    public OrgConverter(){}
 
     /**
      * 新增ReqDto->BO

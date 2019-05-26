@@ -1,6 +1,6 @@
 package com.alphabet.service.impl;
 
-import com.alphabet.conver.OrgConver;
+import com.alphabet.converter.OrgConverter;
 import com.alphabet.entity.OrgBOModel.OrgBO;
 import com.alphabet.manager.OrgMapper;
 import com.alphabet.entity.OrgDOModel.OrgDO;
@@ -25,7 +25,7 @@ public class OrgServiceImpl implements OrgService {
     @Autowired
     private OrgMapper orgMapper;
     @Autowired
-    private OrgConver orgConver;
+    private OrgConverter orgConver;
 
     /**
      * 新增部门

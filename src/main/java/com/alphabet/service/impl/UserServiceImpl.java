@@ -1,6 +1,6 @@
 package com.alphabet.service.impl;
 
-import com.alphabet.conver.UserConver;
+import com.alphabet.converter.UserConverter;
 import com.alphabet.entity.UserBOModel.UserBO;
 import com.alphabet.entity.UserDOModel.UserDO;
 import com.alphabet.manager.UserMapper;
@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userManager;
     @Autowired
-    private UserConver userConver;
+    private UserConverter userConver;
 
     /**
      * 新增用户

@@ -1,4 +1,4 @@
-package com.alphabet.conver;
+package com.alphabet.converter;
 
 import com.alphabet.entity.UserBOModel.UserBO;
 import com.alphabet.entity.UserDOModel.UserDO;
@@ -12,9 +12,9 @@ import org.springframework.stereotype.Component;
  * @Date 2019/5/25 21:37
  **/
 @Component
-public class UserConver {
+public class UserConverter {
 
-    public UserConver(){}
+    public UserConverter(){}
 
     /**
      * 新增ReqDTO->AddBO
