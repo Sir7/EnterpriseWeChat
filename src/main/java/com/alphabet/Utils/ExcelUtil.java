@@ -1,4 +1,4 @@
-package com.alphabet.Utils;
+package com.alphabet.utils;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

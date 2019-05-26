@@ -7,7 +7,7 @@
  * @todo admin(冯有双  E-mail:feng.youshuang@cesgroup.com.cn) 
  * 创建于 2014-12-22 上午10:03:19
  */
-package com.alphabet.Utils;
+package com.alphabet.utils;
 
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;

@@ -7,7 +7,7 @@
  * @todo admin(冯有双  E-mail:feng.youshuang@cesgroup.com.cn) 
  * 创建于 2014-12-29 上午11:02:18
  */
-package com.alphabet.Utils;
+package com.alphabet.utils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
