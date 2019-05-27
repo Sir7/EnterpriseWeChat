@@ -41,7 +41,8 @@ public class FTPUtil {
 	 * 		<br/>
 	 * 		<b>false</b>：上传失败
 	 */
-	public static boolean storeFile (String url, int port, String userName, String password, String storePath, String fileName, InputStream is) {
+	public static boolean storeFile (String url, int port, String userName, String password,
+									 String storePath, String fileName, InputStream is) {
 		boolean result = false;
 		FTPClient ftp = new FTPClient();
 		try {
@@ -115,7 +116,8 @@ public class FTPUtil {
 	 * 		<br/>
 	 * 		<b>false</b>：下载失败
 	 */
-	public static boolean retrieveFile (String url, int port, String userName, String password, String remotePath, String fileName, String localPath) {
+	public static boolean retrieveFile (String url, int port, String userName, String password,
+										String remotePath, String fileName, String localPath) {
 		boolean result = false;
 		FTPClient ftp = new FTPClient();
 		OutputStream os = null;
@@ -199,7 +201,8 @@ public class FTPUtil {
 	 * @author hgl
 	 * 10.10.32.2服务器文件 路径  E:\webapps\xmglxt_data\document\201106\1308732167015.pdf
 	 */
-	public static boolean storeFileToPm (String url, int port, String userName, String password, String filePath, String fileName, InputStream is) {
+	public static boolean storeFileToPm (String url, int port, String userName, String password,
+										 String filePath, String fileName, InputStream is) {
 		boolean result = false;
 		FTPClient ftp = new FTPClient();
 		try {
@@ -287,7 +290,8 @@ public class FTPUtil {
 	 * @author hgl
 	 * OA服务器文件 路径  D:\\upload_document\contract\XQ...\1308732167015.jpg
 	 */
-	public static boolean retrieveFileFromScmToOa (String url, int port, String userName, String password, String remotePath, String fileName, String localPath) {
+	public static boolean retrieveFileFromScmToOa (String url, int port, String userName, String password,
+												   String remotePath, String fileName, String localPath) {
 		boolean result = false;
 		FTPClient ftp = new FTPClient();
 		OutputStream os = null;
@@ -368,7 +372,8 @@ public class FTPUtil {
 	 * @param fileName	          服务器文件名称
 	 * @return
 	 */
-	 public static boolean deleteUploadFileToPm (String url, int port, String userName, String password, String remotePath, String fileName) {
+	 public static boolean deleteUploadFileToPm (String url, int port, String userName,
+												 String password, String remotePath, String fileName) {
 		 boolean result = false;
 			FTPClient ftp = new FTPClient();
 			//获得要删除文件的父目录  like:  \201106
