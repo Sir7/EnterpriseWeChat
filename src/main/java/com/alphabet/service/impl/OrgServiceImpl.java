@@ -25,7 +25,7 @@ public class OrgServiceImpl implements OrgService {
     @Autowired
     private OrgMapper orgMapper;
     @Autowired
-    private OrgConverter orgConver;
+    private OrgConverter orgConverter;
 
     /**
      * 新增部门
@@ -34,8 +34,8 @@ public class OrgServiceImpl implements OrgService {
      */
     @Override
     public Boolean addOrg(AddOrgReqDTO addOrgReqDTO) {
-        OrgBO orgBO = orgConver.orgReqDtoToBO(addOrgReqDTO);
-        OrgDO orgDO = orgConver.orgBOToDO(orgBO);
+        OrgBO orgBO = orgConverter.orgReqDtoToBO(addOrgReqDTO);
+        OrgDO orgDO = orgConverter.orgBOToDO(orgBO);
         Boolean aBoolean = orgMapper.del(orgDO) > 0;
         return aBoolean;
     }
@@ -47,8 +47,8 @@ public class OrgServiceImpl implements OrgService {
      */
     @Override
     public Boolean delOrg(DelOrgReqDTO delOrgReqDTO) {
-        OrgBO orgBO = orgConver.delOrgDtoToBO(delOrgReqDTO);
-        OrgDO orgDO = orgConver.orgBOToDO(orgBO);
+        OrgBO orgBO = orgConverter.delOrgDtoToBO(delOrgReqDTO);
+        OrgDO orgDO = orgConverter.orgBOToDO(orgBO);
         Boolean aBoolean = orgMapper.insert(orgDO) > 0;
         return aBoolean;
     }

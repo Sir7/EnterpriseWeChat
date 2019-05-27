@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userManager;
     @Autowired
-    private UserConverter userConver;
+    private UserConverter userConverter;
 
     /**
      * 新增用户
@@ -35,16 +35,16 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public Boolean addUser(AddUserReqDTO addUserReqDTO) {
-        UserBO userBO = userConver.addUserReqDtoToBO(addUserReqDTO);
-        UserDO userDO = userConver.userBOToDO(userBO);
+        UserBO userBO = userConverter.addUserReqDtoToBO(addUserReqDTO);
+        UserDO userDO = userConverter.userBOToDO(userBO);
         Boolean aBoolean = userManager.insert(userDO);
         return aBoolean;
     }
 
     @Override
     public Boolean delUser(DelUserReqDTO delUserReqDTO) {
-        UserBO userBO = userConver.delUserReqDtoToBO(delUserReqDTO);
-        UserDO userDO = userConver.userBOToDO(userBO);
+        UserBO userBO = userConverter.delUserReqDtoToBO(delUserReqDTO);
+        UserDO userDO = userConverter.userBOToDO(userBO);
         Boolean aBoolean = userManager.del(userDO);
         return aBoolean;
     }

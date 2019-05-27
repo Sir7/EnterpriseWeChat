@@ -22,7 +22,7 @@ import java.util.List;
  **/
 @RestController
 @ResponseBody
-@RequestMapping("org")
+@RequestMapping("/org")
 public class OrgController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OrgController.class);

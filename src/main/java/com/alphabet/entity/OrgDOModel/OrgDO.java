@@ -20,10 +20,33 @@ public class OrgDO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String orgId;//组织ID
-    private String orgName;//组织名称
-    private String parentId;//父节点ID
-    private String comments;//备注
-    private String budgetunit;//预算单位
-    private String showOrder;//排序
+    /**
+     * 组织ID
+     */
+    private String orgId;
+
+    /**
+     * 组织名称
+     */
+    private String orgName;
+
+    /**
+     * 父节点ID
+     */
+    private String parentId;
+
+    /**
+     * 备注
+     */
+    private String comments;
+
+    /**
+     * 预算单位
+     */
+    private String budgetunit;
+
+    /**
+     * 排序
+     */
+    private String showOrder;
 }
