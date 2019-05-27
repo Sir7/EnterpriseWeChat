@@ -24,6 +24,7 @@ public interface OrgService {
 
     /**
      * 删除部门
+     *
      * @param delOrgReqDTO
      * @return
      */

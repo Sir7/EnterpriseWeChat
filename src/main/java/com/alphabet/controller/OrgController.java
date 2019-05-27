@@ -32,50 +32,53 @@ public class OrgController {
 
     /**
      * 新增部门
+     *
      * @param addOrgReqDTO
      * @return
      */
     @RequestMapping(value = "/addOrg", method = RequestMethod.POST)
-    public String AddOrg(AddOrgReqDTO addOrgReqDTO){
-        try{
+    public String AddOrg(AddOrgReqDTO addOrgReqDTO) {
+        try {
             LOGGER.info("新增部门请求参数{}", addOrgReqDTO);
             Boolean aBoolean = orgService.addOrg(addOrgReqDTO);
-            LOGGER.info("新增部门请求参数，返回结果：{}",aBoolean);
-        }catch (Exception e){
-            LOGGER.error("新增部门请求参数失败，异常信息：{}",e);
+            LOGGER.info("新增部门请求参数，返回结果：{}", aBoolean);
+        } catch (Exception e) {
+            LOGGER.error("新增部门请求参数失败，异常信息：{}", e);
         }
         return null;
     }
 
     /**
      * 删除部门
+     *
      * @param delOrgReqDTO
      * @return
      */
     @RequestMapping(value = "/addOrg", method = RequestMethod.POST)
-    public String delOrg(DelOrgReqDTO delOrgReqDTO){
-        try{
+    public String delOrg(DelOrgReqDTO delOrgReqDTO) {
+        try {
             LOGGER.info("删除部门请求参数{}", delOrgReqDTO);
             Boolean aBoolean = orgService.delOrg(delOrgReqDTO);
-            LOGGER.info("删除部门请求参数，返回结果：{}",aBoolean);
-        }catch (Exception e){
-            LOGGER.error("删除部门请求参数失败，异常信息：{}",e);
+            LOGGER.info("删除部门请求参数，返回结果：{}", aBoolean);
+        } catch (Exception e) {
+            LOGGER.error("删除部门请求参数失败，异常信息：{}", e);
         }
         return null;
     }
 
     /**
      * 获取所有部门
+     *
      * @return
      */
-    @RequestMapping(value = "/queryAllOrg",method = RequestMethod.POST)
-    public String queryAllOrg(){
-        try{
+    @RequestMapping(value = "/queryAllOrg", method = RequestMethod.POST)
+    public String queryAllOrg() {
+        try {
             LOGGER.info("获取所有部门");
             List<OrgDO> list = orgService.queryAllOrg();
-            LOGGER.info("获取所有部门，返回结果：{}",list);
-        }catch (Exception e){
-            LOGGER.error("获取所有部门失败，异常信息：{}",e);
+            LOGGER.info("获取所有部门，返回结果：{}", list);
+        } catch (Exception e) {
+            LOGGER.error("获取所有部门失败，异常信息：{}", e);
         }
         return null;
     }

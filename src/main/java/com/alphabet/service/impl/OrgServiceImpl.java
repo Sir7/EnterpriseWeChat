@@ -29,6 +29,7 @@ public class OrgServiceImpl implements OrgService {
 
     /**
      * 新增部门
+     *
      * @param addOrgReqDTO
      * @return
      */
@@ -42,6 +43,7 @@ public class OrgServiceImpl implements OrgService {
 
     /**
      * 删除部门
+     *
      * @param delOrgReqDTO
      * @return
      */
