@@ -1,6 +1,13 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="EnterpriseWeChat:war exploded">
     <output-path>$PROJECT_DIR$/target/EnterpriseWeChat</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>EnterpriseWeChat</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -48,7 +55,11 @@
           <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
           <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.0.b2" />
           <element id="library" level="project" name="Maven: org.apache.poi:poi:3.14" />
-          <element id="library" level="project" name="Maven: org.apache.poi:poi-ooxml:3.10" />
+          <element id="library" level="project" name="Maven: org.apache.poi:poi-ooxml:3.14" />
+          <element id="library" level="project" name="Maven: org.apache.poi:poi-ooxml-schemas:3.14" />
+          <element id="library" level="project" name="Maven: org.apache.xmlbeans:xmlbeans:2.6.0" />
+          <element id="library" level="project" name="Maven: stax:stax-api:1.0.1" />
+          <element id="library" level="project" name="Maven: com.github.virtuald:curvesapi:1.03" />
           <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:5.1.4" />
           <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:0.9.5" />
           <element id="library" level="project" name="Maven: com.belerweb:pinyin4j:2.5.1" />
