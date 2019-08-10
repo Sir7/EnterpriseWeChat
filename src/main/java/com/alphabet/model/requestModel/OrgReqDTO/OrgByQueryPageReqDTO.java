@@ -1,4 +1,4 @@
-package com.alphabet.requestModel.OrgModel;
+package com.alphabet.model.requestModel.OrgReqDTO;
 
 import lombok.Getter;
 import lombok.Setter;

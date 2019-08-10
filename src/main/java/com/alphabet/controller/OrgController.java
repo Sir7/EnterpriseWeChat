@@ -1,8 +1,8 @@
 package com.alphabet.controller;
 
 import com.alphabet.entity.OrgDOModel.OrgDO;
-import com.alphabet.requestModel.OrgModel.AddOrgReqDTO;
-import com.alphabet.requestModel.OrgModel.DelOrgReqDTO;
+import com.alphabet.model.requestModel.OrgReqDTO.AddOrgReqDTO;
+import com.alphabet.model.requestModel.OrgReqDTO.DelOrgReqDTO;
 import com.alphabet.service.OrgService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

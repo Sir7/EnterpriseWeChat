@@ -1,7 +1,7 @@
-package com.alphabet.requestModel.UserModel;
+package com.alphabet.model.requestModel.UserReqDTO;
 
 
-import com.alphabet.requestModel.BaseReqDTO;
+import com.alphabet.model.BaseReqDTO;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

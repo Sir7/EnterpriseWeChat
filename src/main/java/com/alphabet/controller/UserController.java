@@ -1,8 +1,8 @@
 package com.alphabet.controller;
 
 import com.alphabet.entity.UserDOModel.UserDO;
-import com.alphabet.requestModel.UserModel.AddUserReqDTO;
-import com.alphabet.requestModel.UserModel.DelUserReqDTO;
+import com.alphabet.model.requestModel.UserReqDTO.AddUserReqDTO;
+import com.alphabet.model.requestModel.UserReqDTO.DelUserReqDTO;
 import com.alphabet.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

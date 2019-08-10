@@ -2,8 +2,8 @@ package com.alphabet.converter;
 
 import com.alphabet.entity.UserBOModel.UserBO;
 import com.alphabet.entity.UserDOModel.UserDO;
-import com.alphabet.requestModel.UserModel.AddUserReqDTO;
-import com.alphabet.requestModel.UserModel.DelUserReqDTO;
+import com.alphabet.model.requestModel.UserReqDTO.AddUserReqDTO;
+import com.alphabet.model.requestModel.UserReqDTO.DelUserReqDTO;
 import org.springframework.stereotype.Component;
 
 /**

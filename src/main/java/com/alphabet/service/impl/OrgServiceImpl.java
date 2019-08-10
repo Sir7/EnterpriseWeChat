@@ -4,8 +4,8 @@ import com.alphabet.converter.OrgConverter;
 import com.alphabet.entity.OrgBOModel.OrgBO;
 import com.alphabet.manager.OrgMapper;
 import com.alphabet.entity.OrgDOModel.OrgDO;
-import com.alphabet.requestModel.OrgModel.AddOrgReqDTO;
-import com.alphabet.requestModel.OrgModel.DelOrgReqDTO;
+import com.alphabet.model.requestModel.OrgReqDTO.AddOrgReqDTO;
+import com.alphabet.model.requestModel.OrgReqDTO.DelOrgReqDTO;
 import com.alphabet.service.OrgService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,9 +35,13 @@ public class OrgServiceImpl implements OrgService {
      */
     @Override
     public Boolean addOrg(AddOrgReqDTO addOrgReqDTO) {
+        Boolean aBoolean = false;
         OrgBO orgBO = orgConverter.orgReqDtoToBO(addOrgReqDTO);
+        if(orgBO == null){
+            return aBoolean;
+        }
         OrgDO orgDO = orgConverter.orgBOToDO(orgBO);
-        Boolean aBoolean = orgMapper.del(orgDO) > 0;
+        aBoolean = orgMapper.del(orgDO) > 0;
         return aBoolean;
     }
 
@@ -49,9 +53,13 @@ public class OrgServiceImpl implements OrgService {
      */
     @Override
     public Boolean delOrg(DelOrgReqDTO delOrgReqDTO) {
+        Boolean aBoolean = false;
         OrgBO orgBO = orgConverter.delOrgDtoToBO(delOrgReqDTO);
+        if(orgBO == null){
+            return aBoolean;
+        }
         OrgDO orgDO = orgConverter.orgBOToDO(orgBO);
-        Boolean aBoolean = orgMapper.insert(orgDO) > 0;
+        aBoolean = orgMapper.insert(orgDO) > 0;
         return aBoolean;
     }
 

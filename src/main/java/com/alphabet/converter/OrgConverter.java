@@ -2,8 +2,8 @@ package com.alphabet.converter;
 
 import com.alphabet.entity.OrgBOModel.OrgBO;
 import com.alphabet.entity.OrgDOModel.OrgDO;
-import com.alphabet.requestModel.OrgModel.AddOrgReqDTO;
-import com.alphabet.requestModel.OrgModel.DelOrgReqDTO;
+import com.alphabet.model.requestModel.OrgReqDTO.AddOrgReqDTO;
+import com.alphabet.model.requestModel.OrgReqDTO.DelOrgReqDTO;
 import org.springframework.stereotype.Component;
 
 /**

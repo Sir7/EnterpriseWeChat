@@ -1,8 +1,8 @@
 package com.alphabet.service;
 
 import com.alphabet.entity.UserDOModel.UserDO;
-import com.alphabet.requestModel.UserModel.AddUserReqDTO;
-import com.alphabet.requestModel.UserModel.DelUserReqDTO;
+import com.alphabet.model.requestModel.UserReqDTO.AddUserReqDTO;
+import com.alphabet.model.requestModel.UserReqDTO.DelUserReqDTO;
 
 import java.util.List;
 

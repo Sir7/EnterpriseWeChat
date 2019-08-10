@@ -4,8 +4,8 @@ import com.alphabet.converter.UserConverter;
 import com.alphabet.entity.UserBOModel.UserBO;
 import com.alphabet.entity.UserDOModel.UserDO;
 import com.alphabet.manager.UserMapper;
-import com.alphabet.requestModel.UserModel.AddUserReqDTO;
-import com.alphabet.requestModel.UserModel.DelUserReqDTO;
+import com.alphabet.model.requestModel.UserReqDTO.AddUserReqDTO;
+import com.alphabet.model.requestModel.UserReqDTO.DelUserReqDTO;
 import com.alphabet.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,17 +36,25 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public Boolean addUser(AddUserReqDTO addUserReqDTO) {
+        Boolean aBoolean = false;
         UserBO userBO = userConverter.addUserReqDtoToBO(addUserReqDTO);
+        if(userBO == null){
+            return aBoolean;
+        }
         UserDO userDO = userConverter.userBOToDO(userBO);
-        Boolean aBoolean = userManager.insert(userDO);
+        aBoolean = userManager.insert(userDO);
         return aBoolean;
     }
 
     @Override
     public Boolean delUser(DelUserReqDTO delUserReqDTO) {
+        Boolean aBoolean = false;
         UserBO userBO = userConverter.delUserReqDtoToBO(delUserReqDTO);
+        if(userBO == null){
+            return aBoolean;
+        }
         UserDO userDO = userConverter.userBOToDO(userBO);
-        Boolean aBoolean = userManager.del(userDO);
+        aBoolean = userManager.del(userDO);
         return aBoolean;
     }
 

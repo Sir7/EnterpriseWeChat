@@ -1,9 +1,10 @@
-package com.alphabet.requestModel;
+package com.alphabet.model;
 
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import net.sf.oval.constraint.NotBlank;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -15,16 +16,16 @@ import java.io.Serializable;
  **/
 @Setter
 @Getter
-@ToString(callSuper=true)
+@ToString
 public class BaseReqDTO implements Serializable{
 
-    private static final long serialVersionUID = 1L;
-
+    private static final long serialVersionUID = -6133559415243092069L;
     /**
      * 请求日志号
      */
     @NotNull(message = "日志号不能为空")
-    private String traceLogid;
+    @NotBlank(message = "日志号不能为空值")
+    private String traceLogId;
 
     /**
      * 请求系统
