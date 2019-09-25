@@ -44,5 +44,5 @@ public interface OrgMapper {
      * @param orgDO
      * @return
      */
-    OrgDO queryOrg(OrgDO orgDO);
+    OrgDO querySingleOrg(OrgDO orgDO);
 }

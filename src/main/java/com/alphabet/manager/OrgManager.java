@@ -56,7 +56,7 @@ public class OrgManager {
      * @return
      */
     public OrgDO querySingleOrg(OrgDO orgDO){
-        return orgMapper.queryOrg(orgDO);
+        return orgMapper.querySingleOrg(orgDO);
     }
 
     /**

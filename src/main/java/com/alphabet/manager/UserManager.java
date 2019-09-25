@@ -56,16 +56,7 @@ public class UserManager {
      * @return
      */
     public UserDO querySingleUser(UserDO userDO){
-        return userMapper.queryUser(userDO);
-    }
-
-    /**
-     * 更新用户信息
-     * @param userDO
-     * @return
-     */
-    public Boolean modifyUser(UserDO userDO){
-        return userMapper.updateUser(userDO) > 0;
+        return userMapper.querySingleUser(userDO);
     }
 
     /**

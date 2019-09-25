@@ -29,7 +29,7 @@ public interface UserMapper {
     int updateUser(UserDO userDO);
 
     /**
-     * 获取多个职用户
+     * 获取多个用户
      * @return
      */
     List<UserDO> queryUsers(UserDO userDO);
@@ -39,5 +39,5 @@ public interface UserMapper {
      * @param userDO
      * @return
      */
-    UserDO queryUser(UserDO userDO);
+    UserDO querySingleUser(UserDO userDO);
 }
