@@ -1,4 +1,4 @@
-package com.alphabet.manager;
+package com.alphabet.dal;
 
 import com.alphabet.entity.OrgDOModel.OrgDO;
 import org.springframework.stereotype.Repository;
@@ -25,16 +25,24 @@ public interface OrgMapper {
      */
     int del(OrgDO orgDO);
 
-    //获取所有部门
-    List<OrgDO> queryAllOrg();
+    /**
+     * 修改部门
+     * @param orgDO
+     * @return
+     */
+    int update(OrgDO orgDO);
 
-    //根据部门id获取部门
-    OrgDO getOrgByOrgId(String orgId);
+    /**
+     * 获取多个部门
+     * @param orgDO
+     * @return
+     */
+    List<OrgDO> queryOrgs(OrgDO orgDO);
 
-    //根据主键id获取部门
-    OrgDO getOrgById(String id);
-
-    //根据部门名称获取部门
-    OrgDO getOrgByName(String orgName);
-
+    /**
+     * 获取单个部门
+     * @param orgDO
+     * @return
+     */
+    OrgDO queryOrg(OrgDO orgDO);
 }

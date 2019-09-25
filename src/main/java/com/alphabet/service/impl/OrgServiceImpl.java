@@ -2,10 +2,9 @@ package com.alphabet.service.impl;
 
 import com.alphabet.converter.OrgConverter;
 import com.alphabet.entity.OrgBOModel.OrgBO;
-import com.alphabet.manager.OrgMapper;
 import com.alphabet.entity.OrgDOModel.OrgDO;
-import com.alphabet.model.requestModel.OrgReqDTO.AddOrgReqDTO;
-import com.alphabet.model.requestModel.OrgReqDTO.DelOrgReqDTO;
+import com.alphabet.manager.OrgManager;
+import com.alphabet.model.requestModel.OrgReqDTO.*;
 import com.alphabet.service.OrgService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,7 @@ import java.util.List;
 public class OrgServiceImpl implements OrgService {
 
     @Autowired
-    private OrgMapper orgMapper;
+    private OrgManager orgManager;
     @Autowired
     private OrgConverter orgConverter;
 
@@ -41,8 +40,7 @@ public class OrgServiceImpl implements OrgService {
             return aBoolean;
         }
         OrgDO orgDO = orgConverter.orgBOToDO(orgBO);
-        aBoolean = orgMapper.del(orgDO) > 0;
-        return aBoolean;
+        return orgManager.delOrg(orgDO);
     }
 
     /**
@@ -59,28 +57,36 @@ public class OrgServiceImpl implements OrgService {
             return aBoolean;
         }
         OrgDO orgDO = orgConverter.orgBOToDO(orgBO);
-        aBoolean = orgMapper.insert(orgDO) > 0;
-        return aBoolean;
+        return orgManager.addOrg(orgDO);
+    }
+
+    /**
+     * 修改部门
+     *
+     * @param updateOrgReqDTO
+     * @return
+     */
+    @Override
+    public Boolean updateOrg(UpdateOrgReqDTO updateOrgReqDTO) {
+        Boolean aBoolean = false;
+        OrgBO orgBO = orgConverter.updateOrgDtoToBO(updateOrgReqDTO);
+        if(orgBO == null){
+            return aBoolean;
+        }
+        OrgDO orgDO = orgConverter.orgBOToDO(orgBO);
+        return orgManager.modifyOrg(orgDO);
     }
 
     @Override
-    public List<OrgDO> queryAllOrg() {
-        return orgMapper.queryAllOrg();
+    public List<OrgDO> queryOrgs(QueryOrgsReqDTO queryOrgsReqDTO) {
+        OrgBO orgBO = orgConverter.queryOrgsDtoToBO(queryOrgsReqDTO);
+        return orgManager.queryOrgs(orgConverter.orgBOToDO(orgBO));
     }
 
     @Override
-    public OrgDO getOrgByOrgId(String orgId) {
-        return orgMapper.getOrgByOrgId(orgId);
-    }
-
-    @Override
-    public OrgDO getOrgById(String id) {
-        return orgMapper.getOrgById(id);
-    }
-
-    @Override
-    public OrgDO getOrgByName(String orgName) {
-        return orgMapper.getOrgByName(orgName);
+    public OrgDO querySingleOrg(QueryOrgReqDTO queryOrgReqDTO) {
+        OrgBO orgBO = orgConverter.queryOrgDtoToBO(queryOrgReqDTO);
+        return orgManager.querySingleOrg(orgConverter.orgBOToDO(orgBO));
     }
 
 }

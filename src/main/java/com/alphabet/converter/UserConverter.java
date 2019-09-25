@@ -4,6 +4,8 @@ import com.alphabet.entity.UserBOModel.UserBO;
 import com.alphabet.entity.UserDOModel.UserDO;
 import com.alphabet.model.requestModel.UserReqDTO.AddUserReqDTO;
 import com.alphabet.model.requestModel.UserReqDTO.DelUserReqDTO;
+import com.alphabet.model.requestModel.UserReqDTO.QueryUserReqDTO;
+import com.alphabet.model.requestModel.UserReqDTO.UpdateUserReqDTO;
 import org.springframework.stereotype.Component;
 
 /**
@@ -32,7 +34,7 @@ public class UserConverter {
                 .email(addUserReqDTO.getEmail())
                 .isSuperadmin(addUserReqDTO.getIsSuperadmin())
                 .loginName(addUserReqDTO.getLoginName())
-                .mobile(addUserReqDTO.getMobile())
+                .mobile(addUserReqDTO.getMobilePhone())
                 .orgId(addUserReqDTO.getOrgId())
                 .orgName(addUserReqDTO.getOrgName())
                 .policeId(addUserReqDTO.getPoliceId())
@@ -77,10 +79,70 @@ public class UserConverter {
      * @return
      */
     public static UserBO delUserReqDtoToBO(DelUserReqDTO delUserReqDTO){
-            if(delUserReqDTO == null){
+        if(delUserReqDTO == null){
             return null;
         }
         UserBO userBO = UserBO.builder().userId(delUserReqDTO.getUserId()).build();
+        return userBO;
+    }
+
+    /**
+     * 查询ReqDTO->UserBO
+     * @param queryUserReqDTO
+     * @return
+     */
+    public static UserBO queryUserReqDtoToBO(QueryUserReqDTO queryUserReqDTO){
+        if(queryUserReqDTO == null){
+            return null;
+        }
+        UserBO userBO = UserBO.builder().userId(queryUserReqDTO.getUserId())
+                .userName(queryUserReqDTO.getUserName())
+                .birthday(queryUserReqDTO.getBirthday())
+                .comments(queryUserReqDTO.getComments())
+                .email(queryUserReqDTO.getEmail())
+                .isSuperadmin(queryUserReqDTO.getIsSuperadmin())
+                .loginName(queryUserReqDTO.getLoginName())
+                .mobile(queryUserReqDTO.getMobile())
+                .orgId(queryUserReqDTO.getOrgId())
+                .orgName(queryUserReqDTO.getOrgName())
+                .policeId(queryUserReqDTO.getPoliceId())
+                .post(queryUserReqDTO.getPost())
+                .remark(queryUserReqDTO.getRemark())
+                .station(queryUserReqDTO.getStation())
+                .status(queryUserReqDTO.getStatus())
+                .telephone(queryUserReqDTO.getTelephone())
+                .urlPath(queryUserReqDTO.getUrlPath())
+                .build();
+        return userBO;
+    }
+
+    /**
+     * 修改ReqDTO->BO
+     * @param updateUserReqDTO
+     * @return
+     */
+    public static UserBO updateUserReqDtoToBO(UpdateUserReqDTO updateUserReqDTO){
+        if(updateUserReqDTO == null){
+            return null;
+        }
+        UserBO userBO = UserBO.builder().userId(updateUserReqDTO.getUserId())
+                .userName(updateUserReqDTO.getUserName())
+                .birthday(updateUserReqDTO.getBirthday())
+                .comments(updateUserReqDTO.getComments())
+                .email(updateUserReqDTO.getEmail())
+                .isSuperadmin(updateUserReqDTO.getIsSuperadmin())
+                .loginName(updateUserReqDTO.getLoginName())
+                .mobile(updateUserReqDTO.getMobilePhone())
+                .orgId(updateUserReqDTO.getOrgId())
+                .orgName(updateUserReqDTO.getOrgName())
+                .policeId(updateUserReqDTO.getPoliceId())
+                .post(updateUserReqDTO.getPost())
+                .remark(updateUserReqDTO.getRemark())
+                .station(updateUserReqDTO.getStation())
+                .status(updateUserReqDTO.getStatus())
+                .telephone(updateUserReqDTO.getTelephone())
+                .urlPath(updateUserReqDTO.getUrlPath())
+                .build();
         return userBO;
     }
 

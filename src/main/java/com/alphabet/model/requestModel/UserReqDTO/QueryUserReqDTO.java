@@ -15,10 +15,9 @@ import java.io.Serializable;
 @Setter
 @Getter
 @ToString(callSuper=true)
-public class AddUserReqDTO extends BaseReqDTO implements Serializable{
+public class QueryUserReqDTO extends BaseReqDTO implements Serializable{
 
-    private static final long serialVersionUID = 1L;
-
+    private static final long serialVersionUID = 5478611166047693083L;
     /**
      * 用户ID
      */

@@ -3,6 +3,8 @@ package com.alphabet.service;
 import com.alphabet.entity.UserDOModel.UserDO;
 import com.alphabet.model.requestModel.UserReqDTO.AddUserReqDTO;
 import com.alphabet.model.requestModel.UserReqDTO.DelUserReqDTO;
+import com.alphabet.model.requestModel.UserReqDTO.QueryUserReqDTO;
+import com.alphabet.model.requestModel.UserReqDTO.UpdateUserReqDTO;
 
 import java.util.List;
 
@@ -29,43 +31,24 @@ public interface UserService {
     Boolean delUser(DelUserReqDTO delUserReqDTO);
 
     /**
-     * 获取所有在职用户
+     * 修改用户
+     * @param updateUserReqDTO
      * @return
      */
-    List<UserDO> queryAllUser();
+    Boolean updateUser(UpdateUserReqDTO updateUserReqDTO);
+
+    /**
+     * 获取多个用户
+     * @param queryUserReqDTO
+     * @return
+     */
+    List<UserDO> queryUsers(QueryUserReqDTO queryUserReqDTO);
 
     /**
      * 根据id获取用户
-     * @param id
+     * @param queryUserReqDTO
      * @return
      */
-    UserDO getUserById(String id);
+    UserDO querySingleUser(QueryUserReqDTO queryUserReqDTO);
 
-    /**
-     * 根据userId获取用户
-     * @param userId
-     * @return
-     */
-    UserDO getUserByUserId(String userId);
-
-    /**
-     * 根据用户名和密码获取用户
-     * @param userName
-     * @param password
-     * @return
-     */
-    UserDO getUserByInfo(String userName, String password);
-
-    /**
-     * 根据组织id获取在职用户
-     * @param orgId
-     * @return
-     */
-    List<UserDO> getUserByOrgId(String orgId);
-
-    /**
-     * 获取所有离职用户
-     * @return
-     */
-    List<UserDO> getQuitUser();
 }

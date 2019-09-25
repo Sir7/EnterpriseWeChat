@@ -1,11 +1,9 @@
 package com.alphabet.controller;
 
 import com.alphabet.entity.OrgDOModel.OrgDO;
-import com.alphabet.model.requestModel.OrgReqDTO.AddOrgReqDTO;
-import com.alphabet.model.requestModel.OrgReqDTO.DelOrgReqDTO;
+import com.alphabet.model.requestModel.OrgReqDTO.*;
 import com.alphabet.service.OrgService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,12 +18,11 @@ import java.util.List;
  * @Author yang.lvsen
  * @Date 2018/6/6 21:38
  **/
+@Slf4j
 @RestController
 @ResponseBody
 @RequestMapping("/org")
 public class OrgController {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(OrgController.class);
 
     @Autowired
     private OrgService orgService;
@@ -36,14 +33,14 @@ public class OrgController {
      * @param addOrgReqDTO
      * @return
      */
-    @RequestMapping(value = "/addOrg", method = RequestMethod.POST)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String AddOrg(AddOrgReqDTO addOrgReqDTO) {
         try {
-            LOGGER.info("新增部门请求参数{}", addOrgReqDTO);
+            log.info("新增部门请求参数{}", addOrgReqDTO);
             Boolean aBoolean = orgService.addOrg(addOrgReqDTO);
-            LOGGER.info("新增部门请求参数，返回结果：{}", aBoolean);
+            log.info("新增部门请求参数，返回结果：{}", aBoolean);
         } catch (Exception e) {
-            LOGGER.error("新增部门请求参数失败，异常信息：{}", e);
+            log.error("新增部门请求参数失败，异常信息：{}", e);
         }
         return null;
     }
@@ -54,31 +51,66 @@ public class OrgController {
      * @param delOrgReqDTO
      * @return
      */
-    @RequestMapping(value = "/addOrg", method = RequestMethod.POST)
+    @RequestMapping(value = "/del", method = RequestMethod.POST)
     public String delOrg(DelOrgReqDTO delOrgReqDTO) {
         try {
-            LOGGER.info("删除部门请求参数{}", delOrgReqDTO);
+            log.info("删除部门请求参数{}", delOrgReqDTO);
             Boolean aBoolean = orgService.delOrg(delOrgReqDTO);
-            LOGGER.info("删除部门请求参数，返回结果：{}", aBoolean);
+            log.info("删除部门请求参数，返回结果：{}", aBoolean);
         } catch (Exception e) {
-            LOGGER.error("删除部门请求参数失败，异常信息：{}", e);
+            log.error("删除部门请求参数失败，异常信息：{}", e);
         }
         return null;
     }
 
     /**
-     * 获取所有部门
+     * 修改部门
+     *
+     * @param updateOrgReqDTO
+     * @return
+     */
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String updateOrg(UpdateOrgReqDTO updateOrgReqDTO) {
+        try {
+            log.info("修改部门请求参数{}", updateOrgReqDTO);
+            Boolean aBoolean = orgService.updateOrg(updateOrgReqDTO);
+            log.info("修改部门请求参数，返回结果：{}", aBoolean);
+        } catch (Exception e) {
+            log.error("修改部门请求参数失败，异常信息：{}", e);
+        }
+        return null;
+    }
+
+    /**
+     * 获取多个部门
      *
      * @return
      */
-    @RequestMapping(value = "/queryAllOrg", method = RequestMethod.POST)
-    public String queryAllOrg() {
+    @RequestMapping(value = "/queryOrgs", method = RequestMethod.POST)
+    public String queryOrgs(QueryOrgsReqDTO queryOrgsReqDTO) {
         try {
-            LOGGER.info("获取所有部门");
-            List<OrgDO> list = orgService.queryAllOrg();
-            LOGGER.info("获取所有部门，返回结果：{}", list);
+            log.info("获取多个部门");
+            List<OrgDO> list = orgService.queryOrgs(queryOrgsReqDTO);
+            log.info("获取多个部门，返回结果：{}", list);
         } catch (Exception e) {
-            LOGGER.error("获取所有部门失败，异常信息：{}", e);
+            log.error("获取多个部门失败，异常信息：{}", e);
+        }
+        return null;
+    }
+
+    /**
+     * 获取单个部门
+     * @param queryOrgReqDTO
+     * @return
+     */
+    @RequestMapping(value = "/querySingle", method = RequestMethod.POST)
+    public String querySingleOrg(QueryOrgReqDTO queryOrgReqDTO) {
+        try {
+            log.info("获取单个部门");
+            OrgDO orgDO = orgService.querySingleOrg(queryOrgReqDTO);
+            log.info("获取单个部门，返回结果：{}", orgDO);
+        } catch (Exception e) {
+            log.error("获取单个部门失败，异常信息：{}", e);
         }
         return null;
     }

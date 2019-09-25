@@ -1,8 +1,7 @@
 package com.alphabet.service;
 
 import com.alphabet.entity.OrgDOModel.OrgDO;
-import com.alphabet.model.requestModel.OrgReqDTO.AddOrgReqDTO;
-import com.alphabet.model.requestModel.OrgReqDTO.DelOrgReqDTO;
+import com.alphabet.model.requestModel.OrgReqDTO.*;
 
 import java.util.List;
 
@@ -31,34 +30,26 @@ public interface OrgService {
     Boolean delOrg(DelOrgReqDTO delOrgReqDTO);
 
     /**
-     * 获取所有部门
+     * 修改部门
      *
+     * @param updateOrgReqDTO
      * @return
      */
-    List<OrgDO> queryAllOrg();
+    Boolean updateOrg(UpdateOrgReqDTO updateOrgReqDTO);
 
     /**
-     * 根据部门id获取部门
+     * 获取多个部门
      *
-     * @param orgId
      * @return
      */
-    OrgDO getOrgByOrgId(String orgId);
+    List<OrgDO> queryOrgs(QueryOrgsReqDTO queryOrgsReqDTO);
 
     /**
-     * 根据主键id获取部门
+     * 查询单个部门
      *
-     * @param id
+     * @param queryOrgReqDTO
      * @return
      */
-    OrgDO getOrgById(String id);
-
-    /**
-     * 根据部门名称获取部门
-     *
-     * @param orgName
-     * @return
-     */
-    OrgDO getOrgByName(String orgName);
+    OrgDO querySingleOrg(QueryOrgReqDTO queryOrgReqDTO);
 
 }

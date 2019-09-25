@@ -3,9 +3,11 @@ package com.alphabet.service.impl;
 import com.alphabet.converter.UserConverter;
 import com.alphabet.entity.UserBOModel.UserBO;
 import com.alphabet.entity.UserDOModel.UserDO;
-import com.alphabet.manager.UserMapper;
+import com.alphabet.manager.UserManager;
 import com.alphabet.model.requestModel.UserReqDTO.AddUserReqDTO;
 import com.alphabet.model.requestModel.UserReqDTO.DelUserReqDTO;
+import com.alphabet.model.requestModel.UserReqDTO.QueryUserReqDTO;
+import com.alphabet.model.requestModel.UserReqDTO.UpdateUserReqDTO;
 import com.alphabet.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +26,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserMapper userManager;
+    private UserManager userManager;
     @Autowired
     private UserConverter userConverter;
 
@@ -42,7 +44,7 @@ public class UserServiceImpl implements UserService {
             return aBoolean;
         }
         UserDO userDO = userConverter.userBOToDO(userBO);
-        aBoolean = userManager.insert(userDO);
+        aBoolean = userManager.addUser(userDO);
         return aBoolean;
     }
 
@@ -54,85 +56,41 @@ public class UserServiceImpl implements UserService {
             return aBoolean;
         }
         UserDO userDO = userConverter.userBOToDO(userBO);
-        aBoolean = userManager.del(userDO);
+        aBoolean = userManager.removeUser(userDO);
         return aBoolean;
     }
 
-    /**
-     * 获取所有在职用户
-     *
-     * @return
-     * @Author yang.lvsen
-     * @Date 2018/6/11 17:16
-     **/
     @Override
-    public List<UserDO> queryAllUser() {
-        return userManager.queryAllUser();
+    public Boolean updateUser(UpdateUserReqDTO updateUserReqDTO) {
+        Boolean aBoolean = false;
+        UserBO userBO = userConverter.updateUserReqDtoToBO(updateUserReqDTO);
+        if(userBO == null){
+            return aBoolean;
+        }
+        UserDO userDO = userConverter.userBOToDO(userBO);
+        return userManager.updateUser(userDO);
+    }
+
+    /**
+     * 获取多个用户
+     * @param queryUserReqDTO
+     * @return
+     */
+    @Override
+    public List<UserDO> queryUsers(QueryUserReqDTO queryUserReqDTO) {
+        UserDO userDO = userConverter.userBOToDO(userConverter.queryUserReqDtoToBO(queryUserReqDTO));
+        return userManager.queryUsers(userDO);
     }
 
     /**
      * 根据id获取用户
-     *
-     * @param id
-     * @return com.alphabet.entity.UserDOModel.UserDOModel
-     * @Author yang.lvsen
-     * @Date 2018/6/11 17:16
-     **/
+     * @param queryUserReqDTO
+     * @return
+     */
     @Override
-    public UserDO getUserById(String id) {
-        return userManager.getUserById(id);
+    public UserDO querySingleUser(QueryUserReqDTO queryUserReqDTO) {
+        UserDO userDO = userConverter.userBOToDO(userConverter.queryUserReqDtoToBO(queryUserReqDTO));
+        return userManager.querySingleUser(userDO);
     }
 
-    /**
-     * 根据userId获取用户
-     *
-     * @param userId
-     * @return com.alphabet.entity.UserDOModel.UserDOModel
-     * @Author yang.lvsen
-     * @Date 2018/6/11 17:17
-     **/
-    @Override
-    public UserDO getUserByUserId(String userId) {
-        return userManager.getUserByUserId(userId);
-    }
-
-    /**
-     * 根据用户名和密码获取用户
-     *
-     * @param userName
-     * @param password
-     * @return com.alphabet.entity.UserDOModel.UserDOModel
-     * @Author yang.lvsen
-     * @Date 2018/6/11 17:18
-     **/
-    @Override
-    public UserDO getUserByInfo(String userName, String password) {
-        return userManager.getUserByInfo(userName, password);
-    }
-
-    /**
-     * 根据组织id获取在职用户
-     *
-     * @param orgId
-     * @return java.util.List<com.alphabet.entity.UserDOModel.UserDOModel>
-     * @Author yang.lvsen
-     * @Date 2018/6/11 17:19
-     **/
-    @Override
-    public List<UserDO> getUserByOrgId(String orgId) {
-        return userManager.getUserByOrgId(orgId);
-    }
-
-    /**
-     * 获取所有离职用户
-     *
-     * @param
-     * @return java.util.List<com.alphabet.entity.UserDOModel.UserDOModel>
-     * @Author yang.lvsen
-     * @Date 2018/6/11 17:19
-     **/
-    @Override
-    public List<UserDO> getQuitUser() {
-        return userManager.getQuitUser();
-    }
 }
